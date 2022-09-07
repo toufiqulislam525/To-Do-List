@@ -1,0 +1,28 @@
+<h1>Tasks</h1>
+<table>
+    <tr>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Created</th>
+        <th>Completion</th>
+        <th>Important</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for task in  tasks %}
+    <tr>
+        <td>{{task.title}}</td>
+        <td>{{task.description}}</td>
+
+        <td>{{task.created_at}}</td>
+        <td>{{task.completed}}</td>
+        <td>{{task.important}}</td>
+        <td>view</td>
+        <td>edit</td>
+        <td>delete</td>
+    </tr>
+    {%endfor%}
+
+
+</table>
