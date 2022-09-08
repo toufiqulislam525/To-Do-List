@@ -34,3 +34,16 @@ def create_task(request):
     else:
         context = {'form' : form}
         return render(request,'create_task.html', context)
+
+def update_task(request,id):
+    task = Task.objects.filter(pk=id).first()
+    form = TaskForm(instance=task)
+
+    if request.method == 'POST':
+        form = TaskForm(request.POST,instance=task)
+        if form.is_valid():
+            form.save()
+            return redirect('show_tasks')
+    
+    context = {"form" : form}
+    return render(request,"task_form.html",context)

@@ -20,7 +20,7 @@
         <td>{{task.completed}}</td>
         <td>{{task.important}}</td>
         <td><a href="{% url 'show_task' task.id %}">view</a></td>
-        <td><a href="#">edit</a></td>
+        <td><a href="{% url 'update_task' task.id %}">edit</a></td>
         <td><a href="#">delete</a></td>
     </tr>
     {%endfor%}

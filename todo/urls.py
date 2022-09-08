@@ -7,5 +7,6 @@ urlpatterns = [
     path('tasks/',views.show_tasks,name = 'show_tasks'),
     path('create-task/',views.create_task, name = 'create_task'),
     path('task/<int:id>',views.show_task,name = 'show_task'),
+    path('update-task/<int:id>',views.update_task,name = 'update_task'),
     path('jsi18n',JavaScriptCatalog.as_view(),name='js-catlog')
 ]
