@@ -6,7 +6,7 @@ from .models import Task
 from django.contrib.admin.widgets import AdminDateWidget,AdminSplitDateTime
 
 class TaskForm(ModelForm):
-    completed = forms.SplitDateTimeField(widget=AdminSplitDateTime())
+    completed = forms.SplitDateTimeField(widget=AdminSplitDateTime(),required=False)
     class Meta:
         model = Task
         fields = '__all__'

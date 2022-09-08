@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Task
 from .forms import TaskForm
 
@@ -12,8 +12,19 @@ def show_tasks(request):
 
 def create_task(request):
     form = TaskForm()
-    context = {"form" : form}
-    if(request.POST):
-        return render(request,'home.html')
+    error = ''
+    
+    if request.method == 'POST':
+        
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('show_tasks')
+        else :
+            error = 'Invalid Data'
+            context = {"form" : form, "error" : error}
+            return render(request,'create_task.html', context)
+            
     else:
-        return render(request, 'create_task.html',context)
+        context = {'form' : form}
+        return render(request,'create_task.html', context)
