@@ -1,10 +1,15 @@
+{% extends 'navbar.html'%}
+
+{%block block1%}
 <h1>Task Creation</h1>
 
 <form action="" method="POST">
 
     {% csrf_token %}
-
+    {{form.media}}
     {{form.as_p}}
     <input type="submit">
 
 </form>
+    
+{% endblock block1%}
