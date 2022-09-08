@@ -47,3 +47,8 @@ def update_task(request,id):
     
     context = {"form" : form}
     return render(request,"task_form.html",context)
+
+def delete_task(request,id):
+    task = Task.objects.filter(pk=id).first()
+    task.delete()
+    return redirect('show_tasks')
