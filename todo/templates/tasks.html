@@ -1,8 +1,11 @@
+{% extends 'main.html'%}
+
+{%block block1%}
+
 <h1>Tasks</h1>
 <table>
     <tr>
         <th>Task</th>
-        <th>Description</th>
         <th>Created</th>
         <th>Completion</th>
         <th>Important</th>
@@ -13,16 +16,16 @@
     {% for task in  tasks %}
     <tr>
         <td>{{task.title}}</td>
-        <td>{{task.description}}</td>
-
         <td>{{task.created_at}}</td>
         <td>{{task.completed}}</td>
         <td>{{task.important}}</td>
-        <td>view</td>
-        <td>edit</td>
-        <td>delete</td>
+        <td><a href="{% url 'show_task' task.id %}">view</a></td>
+        <td><a href="#">edit</a></td>
+        <td><a href="#">delete</a></td>
     </tr>
     {%endfor%}
-
-
 </table>
+    
+{% endblock block1%}
+
+
