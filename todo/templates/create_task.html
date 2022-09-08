@@ -1,0 +1,23 @@
+{% extends 'main.html'%}
+
+{%block block1%}
+
+<h1>Task Creation</h1>
+
+{%if error%}
+    <p>{{error}}</p>
+
+{%endif%}
+<form action="" method="POST">
+
+    {% csrf_token %}
+    {{form.media}}
+    {{form.as_p}}
+    <input type="submit">
+
+</form>
+
+
+    
+{% endblock block1%}
+

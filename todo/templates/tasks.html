@@ -1,0 +1,31 @@
+{% extends 'main.html'%}
+
+{%block block1%}
+
+<h1>Tasks</h1>
+<table>
+    <tr>
+        <th>Task</th>
+        <th>Created</th>
+        <th>Completion</th>
+        <th>Important</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for task in  tasks %}
+    <tr>
+        <td>{{task.title}}</td>
+        <td>{{task.created_at}}</td>
+        <td>{{task.completed}}</td>
+        <td>{{task.important}}</td>
+        <td><a href="{% url 'show_task' task.id %}">view</a></td>
+        <td><a href="{% url 'update_task' task.id %}">edit</a></td>
+        <td><a href="{% url 'delete_task' task.id %}">delete</a></td>
+    </tr>
+    {%endfor%}
+</table>
+    
+{% endblock block1%}
+
+
